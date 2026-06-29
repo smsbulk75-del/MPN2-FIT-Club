@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPN2-Fit Club | Wellness & Lifestyle</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #f9fafc;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        .header {
+            background: #0b1a2e;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #facc15;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #f0f4fa;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-menu a:hover {
+            color: #facc15;
+            border-bottom-color: #facc15;
+        }
+
+        .nav-menu a.active {
+            color: #facc15;
+            border-bottom-color: #facc15;
+        }
+
+        /* main sections */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e4e9f0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: #0b1a2e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #facc15;
+            border-radius: 4px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #edf2f7;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+        }
+
+        .card i {
+            font-size: 2.6rem;
+            color: #facc15;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #0b1a2e;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 32px 28px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f7;
+            margin-top: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid #ecf1f7;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item i {
+            width: 40px;
+            font-size: 1.5rem;
+            color: #facc15;
+            text-align: center;
+        }
+
+        .contact-item strong {
+            font-weight: 600;
+            color: #0b1a2e;
+            min-width: 80px;
+        }
+
+        .legal-block {
+            background: white;
+            padding: 32px 28px;
+            border-radius: 24px;
+            border: 1px solid #eef2f7;
+            margin-top: 20px;
+        }
+
+        .legal-block h3 {
+            font-size: 1.6rem;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: #0b1a2e;
+        }
+
+        .legal-block h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-block p, .legal-block li {
+            color: #2d3a4a;
+            margin-bottom: 12px;
+        }
+
+        .legal-block ul {
+            padding-left: 26px;
+            margin-bottom: 20px;
+        }
+
+        .legal-block ul li {
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            background: #0b1a2e;
+            color: #cbd5e1;
+            padding: 30px 0;
+            font-size: 0.95rem;
+            border-top: 1px solid #1f334a;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer a {
+            color: #facc15;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .copy {
+            opacity: 0.8;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .nav-menu {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <h1>MPN2<span>-Fit</span> Club</h1>
+                <div class="tagline">health · growth · opportunity</div>
+            </div>
+            <nav class="nav-menu" id="mainNav">
+                <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a>
+                <a href="#terms"><i class="fas fa-file-contract"></i> Terms</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HOME section (also serves as about / mission) -->
+    <section id="home" class="section">
+        <div class="container">
+            <h2 class="section-title">Welcome to MPN2-Fit Club</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-top: 12px;">
+                <div style="flex: 2; min-width: 280px;">
+                    <p style="font-size: 1.2rem; font-weight: 400; color: #1e2a3a;">A community focused on promoting a healthy lifestyle, personal growth, and financial opportunities through a wide range of wellness and lifestyle products.</p>
+                    <p style="margin-top: 18px; background: #eef6ff; padding: 18px 22px; border-radius: 16px; border-left: 6px solid #facc15;">Our mission: help people improve their health, build an additional source of income, and achieve financial freedom by sharing quality products and developing strong teamwork.</p>
+                    <div style="margin-top: 24px; display: flex; gap: 20px; flex-wrap: wrap;">
+                        <span style="background: #0b1a2e; color: white; padding: 6px 18px; border-radius: 40px; font-weight: 500;"><i class="fas fa-heart" style="color: #facc15; margin-right: 8px;"></i> Wellness</span>
+                        <span style="background: #0b1a2e; color: white; padding: 6px 18px; border-radius: 40px; font-weight: 500;"><i class="fas fa-chart-line" style="color: #facc15; margin-right: 8px;"></i> Growth</span>
+                        <span style="background: #0b1a2e; color: white; padding: 6px 18px; border-radius: 40px; font-weight: 500;"><i class="fas fa-handshake" style="color: #facc15; margin-right: 8px;"></i> Teamwork</span>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 200px; background: white; border-radius: 28px; padding: 24px 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); border: 1px solid #edf2f7;">
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <div><i class="fas fa-map-pin" style="color: #facc15; width: 28px;"></i> Bhubaneswar, 751002</div>
+                        <div><i class="fas fa-phone-alt" style="color: #facc15; width: 28px;"></i> 8882556498</div>
+                        <div><i class="fas fa-envelope" style="color: #facc15; width: 28px;"></i> mpn2fitclub@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- quick highlights -->
+            <div class="card-grid" style="margin-top: 40px;">
+                <div class="card">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>Healthy Lifestyle</h3>
+                    <p>Premium wellness products, nutrition guidance, and fitness support for your daily routine.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Personal Growth</h3>
+                    <p>Develop skills, build confidence, and unlock your potential with our community programs.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Financial Freedom</h3>
+                    <p>Earn additional income by sharing products you love and building your own team.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>Strong Teamwork</h3>
+                    <p>Collaborative environment where every member contributes to collective success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIVACY POLICY -->
+    <section id="privacy" class="section">
+        <div class="container">
+            <h2 class="section-title">Privacy Policy</h2>
+            <div class="legal-block">
+                <p><strong>Effective date:</strong> June 2026</p>
+                <p>MPN2-Fit Club (operated by Mrunal P Nayak) respects your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or interact with us.</p>
+                
+                <h3>Information We Collect</h3>
+                <ul>
+                    <li><strong>Personal Data:</strong> Name, email address, phone number, and any details you provide via contact forms or direct communication.</li>
+                    <li><strong>Usage Data:</strong> Information about how you interact with our site (e.g., pages visited, time spent).</li>
+                    <li><strong>Cookies:</strong> We may use cookies to enhance your experience and analyze site traffic.</li>
+                </ul>
+
+                <h3>How We Use Your Information</h3>
+                <ul>
+                    <li>To provide, maintain, and improve our services and products.</li>
+                    <li>To communicate with you about updates, promotions, and community news.</li>
+                    <li>To build a strong, supportive network and facilitate teamwork.</li>
+                </ul>
+
+                <h3>Data Security</h3>
+                <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, or disclosure.</p>
+
+                <h3>Third-Party Links</h3>
+                <p>Our website may contain links to external sites. We are not responsible for the privacy practices of those sites.</p>
+
+                <h3>Your Rights</h3>
+                <p>You have the right to access, correct, or delete your personal data. Contact us at <strong>mpn2fitclub@gmail.com</strong> for any privacy-related requests.</p>
+
+                <p><em>This policy may be updated from time to time. Please check this page periodically for changes.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMS AND CONDITIONS -->
+    <section id="terms" class="section">
+        <div class="container">
+            <h2 class="section-title">Terms & Conditions</h2>
+            <div class="legal-block">
+                <p><strong>Last updated:</strong> June 2026</p>
+                <p>Welcome to MPN2-Fit Club. By using our website and services, you agree to comply with and be bound by the following terms.</p>
+
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing this website, you accept these Terms & Conditions in full. If you disagree with any part, please do not use our services.</p>
+
+                <h3>2. Use of Content</h3>
+                <ul>
+                    <li>All content, including text, graphics, logos, and images, is the property of MPN2-Fit Club.</li>
+                    <li>You may not reproduce, distribute, or exploit any content without prior written permission.</li>
+                    <li>Unlawful or prohibited use of the website is strictly forbidden.</li>
+                </ul>
+
+                <h3>3. Products & Community</h3>
+                <ul>
+                    <li>We offer wellness and lifestyle products for personal use and resale opportunities.</li>
+                    <li>Members are encouraged to share products and build teams responsibly.</li>
+                    <li>All product claims are based on manufacturer information; we recommend consulting a professional for health-related decisions.</li>
+                </ul>
+
+                <h3>4. User Accounts</h3>
+                <p>If you create an account, you are responsible for maintaining its confidentiality and for all activities under your account.</p>
+
+                <h3>5. Limitation of Liability</h3>
+                <p>MPN2-Fit Club is not liable for any indirect, incidental, or consequential damages arising from the use of our website or products.</p>
+
+                <h3>6. Governing Law</h3>
+                <p>These terms are governed by the laws of India, and any disputes shall be subject to the exclusive jurisdiction of courts in Bhubaneswar.</p>
+
+                <h3>7. Changes to Terms</h3>
+                <p>We reserve the right to update these Terms at any time. Continued use constitutes acceptance of the revised terms.</p>
+
+                <p><strong>Contact:</strong> For any questions regarding these Terms, reach us at mpn2fitclub@gmail.com or 8882556498.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1.5; min-width: 280px;">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-user-circle"></i>
+                            <strong>Founder</strong>
+                            <span>Mrunal P Nayak</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <strong>Email</strong>
+                            <span><a href="mailto:mpn2fitclub@gmail.com" style="color: #0b1a2e; text-decoration: none;">mpn2fitclub@gmail.com</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <strong>Phone</strong>
+                            <span><a href="tel:8882556498" style="color: #0b1a2e; text-decoration: none;">8882556498</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <strong>Address</strong>
+                            <span>Bhubaneswar, 751002, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-store"></i>
+                            <strong>Club</strong>
+                            <span>MPN2-Fit Club</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 18px; background: #f1f6fe; padding: 14px 20px; border-radius: 16px;">
+                        <i class="fas fa-clock" style="color: #facc15; margin-right: 10px;"></i> 
+                        We’d love to hear from you. Reach out for product inquiries, partnership, or any questions.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 240px; background: white; border-radius: 24px; padding: 28px 22px; border: 1px solid #eef2f7; align-self: flex-start;">
+                    <h4 style="font-size: 1.3rem; margin-bottom: 12px;">Quick connect</h4>
+                    <p><i class="fab fa-whatsapp" style="color: #25d366; font-size: 1.6rem; margin-right: 10px;"></i> 8882556498</p>
+                    <p><i class="fab fa-instagram" style="color: #e1306c; font-size: 1.6rem; margin-right: 10px;"></i> @mpn2fitclub</p>
+                    <p style="margin-top: 16px; font-size: 0.95rem;">We respond within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER with copyright -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <span class="copy">© 2026 MPN2-Fit Club. All rights reserved.</span>
+            </div>
+            <div>
+                <a href="#home">Home</a> · 
+                <a href="#privacy">Privacy</a> · 
+                <a href="#terms">Terms</a> · 
+                <a href="#contact">Contact</a>
+            </div>
+            <div style="font-size: 0.9rem; opacity: 0.7;">
+                <i class="fas fa-heart" style="color: #facc15;"></i> Bhubaneswar, India
+            </div>
+        </div>
+    </footer>
+
+    <!-- small JS to highlight active nav -->
+    <script>
+        (function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            function updateActive() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 150) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActive);
+            window.addEventListener('load', updateActive);
+        })();
+    </script>
+</body>
+</html>
